@@ -2,31 +2,60 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>Cadastro - Sistema de Paradas</title>
+  <title>Cadastro - ConectaBus</title>
+  <link rel="stylesheet" href="auth.css">
 </head>
 <body>
-  <h2>Cadastro</h2>
+  <div class="container">
+    <!-- LADO ESQUERDO (cadastro) -->
+    <div class="login-side">
+      <div class="login-box">
+        <h2>Bem-vindo ao ConectaBus</h2>
+        <p class="subtitle">Crie sua conta</p>
 
-  <input id="name" placeholder="Nome completo"><br>
-  <input id="email" placeholder="E-mail"><br>
-  <input id="password" type="password" placeholder="Senha"><br>
+        <input id="name" placeholder="Nome completo"><br>
+        <input id="email" placeholder="E-mail"><br>
+        <input id="password" type="password" placeholder="Senha"><br>
 
-  <label>Tipo de usuário:</label>
-  <select id="userType">
-    <option value="Estudante">Estudante</option>
-    <option value="Governo">Governo</option>
-    <option value="Cidadão">Cidadão</option>
-  </select><br><br>
+        <label>Tipo de usuário:</label>
+        <select id="userType">
+          <option value="Estudante">Estudante</option>
+          <option value="Governo">Governo</option>
+          <option value="Cidadão">Cidadão</option>
+        </select><br><br>
 
-  <button onclick="signup()">Cadastrar</button>
+        <button onclick="signup()">Cadastrar</button>
 
-  <div id="qrArea" style="display:none;">
-    <h3>Escaneie este QR Code no Microsoft Authenticator</h3>
-    <img id="qr" style="width:200px;margin-top:10px">
-    <p>Depois, volte à <a href="login.html">tela de login</a>.</p>
+        <div id="qrArea" style="display:none;">
+          <h3>Escaneie este QR Code no Microsoft Authenticator</h3>
+          <img id="qr" style="width:200px;margin-top:10px">
+          <p>Depois, volte à <a href="index.html">tela de login</a>.</p>
+        </div>
+
+        <p class="signup-text">
+          Já tem uma conta? <a href="index.html">Entrar</a>
+        </p>
+      </div>
+    </div>
+
+    <!-- LADO DIREITO (logo) -->
+    <div class="logo-side">
+      <img src="logo_conectabus.png" alt="Logo ConectaBus" class="logo">
+    </div>
   </div>
-
-  <p>Já tem uma conta? <a href="login.html">Entrar</a></p>
+  
+  <!-- POPUP DE QR CODE CENTRALIZADO -->
+  <div id="qr-popup" class="popup-modal">
+    <div class="popup-content">
+      <span class="icon">📱</span>
+      <div class="text">
+        <p class="title">Cadastro realizado!</p>
+        <p class="message">Escaneie este QR Code no Microsoft Authenticator.</p>
+        <img id="qrPopupImg" style="width: 150px; margin-top:10px;">
+        <button id="closeQRBtn">Fechar</button>
+      </div>
+    </div>
+  </div>
 
   <script src="signup.js"></script>
 </body>

@@ -1,0 +1,227 @@
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+}
+
+/* Lado esquerdo: login */
+.login-side {
+    flex: 1;
+    background-color: #0D1321;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-box {
+    width: 80%;
+    max-width: 400px;
+    text-align: center;
+}
+
+.login-box h2 {
+    margin-bottom: 0px;
+}
+
+.subtitle {
+    font-size: 14px;
+    margin-bottom: 25px;
+    opacity: 0.9;
+}
+
+/* Inputs*/
+input {
+    width: 100%;
+    padding: 14px;  
+    margin: 10px 0;  
+    border-radius: 8px;
+    border: none;
+    outline: none;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+/* Botão  */
+button {
+    width: 100%;  
+    background-color: #ffffff;
+    color: #002B59;
+    font-weight: bold;
+    padding: 14px;  
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-top: 9px;
+}
+
+button:hover {
+    background-color: #e6e6e6;
+}
+
+.signup-text {
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+.signup-text a {
+    color: #fff;
+    text-decoration: underline;
+}
+
+/* Lado direito: logo */
+.logo-side {
+    flex: 1;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo {
+    width: 300px;
+    max-width: 80%;
+}
+
+/* Modal MFA (sobreposição) */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 10;
+    left: 0; top: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(6px);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.modal-content h3 {
+    margin-bottom: 15px;
+    color: #002B59;
+}
+
+/* Popup padrão */
+.popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    background-color: #002B59; 
+    color: white;
+    padding: 20px 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    font-size: 16px;
+    text-align: center;
+    z-index: 20;
+    opacity: 0;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    transition: 0.3s transform ease, 0.3s opacity ease;
+}
+
+.popup.show {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+}
+
+.popup .icon {
+    font-size: 24px;
+    color: #0a6624;
+    font-weight: bold;
+}
+
+.popup .text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.popup .text .title {
+    font-size: 18px;
+    font-weight: bold;
+    color: #ffffff;
+    margin: 0;
+}
+
+.popup .text .message {
+    font-size: 14px;
+    margin: 3px 0 0 0;
+    color: #e0e6ed;
+}
+
+/* Popup QR CODE */
+.popup-modal {
+  display: none;
+  position: fixed;
+  z-index: 100;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(0,0,0,0.5);
+  backdrop-filter: blur(5px);
+  justify-content: center;
+  align-items: center;
+}
+
+.popup-modal.show {
+  display: flex;
+}
+
+.popup-modal .popup-content {
+  background-color: #002B59;
+  color: white;
+  padding: 30px 20px;
+  border-radius: 12px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+
+.popup-modal .icon {
+  font-size: 36px;
+}
+
+.popup-modal #qrPopupImg {
+  width: 150px;
+  border-radius: 8px;
+  margin-top: 10px;
+}
+
+.popup-modal #closeQRBtn {
+  margin-top: 10px;
+  padding: 8px 16px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  background-color: #ffffff;
+  color: #002B59;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.popup-modal #closeQRBtn:hover {
+  background-color: #e6e6e6;
+}
