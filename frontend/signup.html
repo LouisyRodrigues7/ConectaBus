@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Cadastro - Sistema de Paradas</title>
+</head>
+<body>
+  <h2>Cadastro</h2>
+
+  <input id="name" placeholder="Nome completo"><br>
+  <input id="email" placeholder="E-mail"><br>
+  <input id="password" type="password" placeholder="Senha"><br>
+
+  <label>Tipo de usuário:</label>
+  <select id="userType">
+    <option value="Estudante">Estudante</option>
+    <option value="Governo">Governo</option>
+    <option value="Cidadão">Cidadão</option>
+  </select><br><br>
+
+  <button onclick="signup()">Cadastrar</button>
+
+  <div id="qrArea" style="display:none;">
+    <h3>Escaneie este QR Code no Microsoft Authenticator</h3>
+    <img id="qr" style="width:200px;margin-top:10px">
+    <p>Depois, volte à <a href="login.html">tela de login</a>.</p>
+  </div>
+
+  <p>Já tem uma conta? <a href="login.html">Entrar</a></p>
+
+  <script src="signup.js"></script>
+</body>
+</html>

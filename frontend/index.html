@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Login - Sistema de Paradas</title>
+</head>
+<body>
+  <h2>Login</h2>
+
+  <input id="email" placeholder="E-mail"><br>
+  <input id="password" type="password" placeholder="Senha"><br>
+  <button onclick="login()">Entrar</button>
+
+  <div id="mfa" style="display:none;margin-top:20px;">
+    <h3>Digite o código do Microsoft Authenticator</h3>
+    <input id="token" placeholder="Código MFA"><br>
+    <button onclick="verifyMFA()">Verificar</button>
+  </div>
+
+  <p>Não tem uma conta? <a href="signup.html">Cadastre-se aqui</a></p>
+
+  <script src="login.js"></script>
+</body>
+</html>
