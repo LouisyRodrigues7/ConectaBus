@@ -12,7 +12,7 @@ async function login() {
   }
 
   try {
-    const res = await fetch("http://localhost:3000/login", {
+    const res = await fetch("https://conectabus-2w5g.onrender.com/login", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ email: emailInput, password: passwordInput })
@@ -69,7 +69,7 @@ async function verifyMFA() {
   }
 
   try {
-    const res = await fetch("http://localhost:3000/verify-mfa", {
+    const res = await fetch("https://conectabus-2w5g.onrender.com/verify-mfa", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ email: currentEmail, token })
@@ -78,10 +78,10 @@ async function verifyMFA() {
     const data = await res.json();
 
     if (data.message === "Login bem-sucedido!") {
-      showPopup("Login Completo", " Você entrou no ConectaBus com sucesso!", true);
+      showPopup("Login Completo", "Você entrou no ConectaBus com sucesso!", true);
       setTimeout(() => (window.location.href = "dashboard.html"), 2500);
     } else {
-      showPopup("Erro", " Código inválido!", false);
+      showPopup("Erro", "Código inválido!", false);
     }
   } catch (error) {
     console.error("Erro ao verificar MFA:", error);
