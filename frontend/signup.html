@@ -26,12 +26,6 @@
 
         <button onclick="signup()">Cadastrar</button>
 
-        <div id="qrArea" style="display:none;">
-          <h3>Escaneie este QR Code no Microsoft Authenticator</h3>
-          <img id="qr" style="width:200px;margin-top:10px">
-          <p>Depois, volte à <a href="index.html">tela de login</a>.</p>
-        </div>
-
         <p class="signup-text">
           Já tem uma conta? <a href="index.html">Entrar</a>
         </p>
@@ -44,16 +38,14 @@
     </div>
   </div>
   
-  <!-- POPUP DE QR CODE CENTRALIZADO -->
-  <div id="qr-popup" class="popup-modal">
-    <div class="popup-content">
-      <span class="icon">📱</span>
-      <div class="text">
-        <p class="title">Cadastro realizado!</p>
-        <p class="message">Escaneie este QR Code no Microsoft Authenticator.</p>
-        <img id="qrPopupImg" style="width: 150px; margin-top:10px;">
-        <button id="closeQRBtn">Fechar</button>
-      </div>
+  <!-- POPUP DE QR CODE  -->
+  <div id="qr-popup" class="mfa-popup">
+    <div class="mfa-popup-content">
+      <h3>📱 Cadastro realizado com sucesso!</h3>
+      <p>Escaneie este QR Code no Microsoft Authenticator.</p>
+      <img id="qrPopupImg" style="width: 160px; margin: 15px 0;">
+      <br>
+      <button id="closeQRBtn" style="background:#0a6624;color:white;padding:10px 18px;border:none;border-radius:10px;cursor:pointer;">Fechar</button>
     </div>
   </div>
 

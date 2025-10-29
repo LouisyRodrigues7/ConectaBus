@@ -18,7 +18,7 @@ async function signup() {
     if (result.qrCodeUrl) {
       showQRPopup(result.qrCodeUrl);
     } else {
-      showPopup(result.message, false);
+      showPopup("Erro", result.message, false);
     }
   } catch (error) {
     console.error("Erro no cadastro:", error);
@@ -26,6 +26,7 @@ async function signup() {
   }
 }
 
+// Exibe o popup do QR Code com design unificado
 function showQRPopup(qrUrl) {
   const popup = document.getElementById("qr-popup");
   const qrImg = document.getElementById("qrPopupImg");
@@ -36,21 +37,42 @@ function showQRPopup(qrUrl) {
   const closeBtn = document.getElementById("closeQRBtn");
   closeBtn.onclick = () => {
     popup.classList.remove("show");
+    setTimeout(() => window.location.href = "index.html", 300);
   };
 }
 
-// Popup de mensagens geral 
-function showQRPopup(qrUrl) {
-  const popup = document.getElementById("qr-popup");
-  const qrImg = document.getElementById("qrPopupImg");
-  qrImg.src = qrUrl;
+// Popup de mensagens genérico
+function showPopup(title, message, success = true) {
+  const popup = document.createElement("div");
+  popup.className = "popup";
 
-  popup.classList.add("show");
+  const icon = document.createElement("div");
+  icon.className = "icon";
+  icon.innerHTML = success ? "✔" : "✖";
+  icon.style.color = success ? "#0a6624" : "#ff4c4c"; 
 
-  const closeBtn = document.getElementById("closeQRBtn");
-  closeBtn.onclick = () => {
+  const text = document.createElement("div");
+  text.className = "text";
+
+  const popupTitle = document.createElement("h3");
+  popupTitle.className = "title";
+  popupTitle.innerText = title;
+  popupTitle.style.color = "#ffffff"; 
+
+  const popupMessage = document.createElement("p");
+  popupMessage.className = "message";
+  popupMessage.innerText = message;
+  popupMessage.style.color = "#e0e6ed";
+
+  text.appendChild(popupTitle);
+  text.appendChild(popupMessage);
+  popup.appendChild(icon);
+  popup.appendChild(text);
+  document.body.appendChild(popup);
+
+  setTimeout(() => popup.classList.add("show"), 10);
+  setTimeout(() => {
     popup.classList.remove("show");
-    // Redireciona para a tela de login
-    window.location.href = "index.html";
-  };
+    setTimeout(() => popup.remove(), 300);
+  }, 2500);
 }

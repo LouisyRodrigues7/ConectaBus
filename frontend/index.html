@@ -15,13 +15,7 @@
 
         <input id="email" placeholder="E-mail"><br>
         <input id="password" type="password" placeholder="Senha"><br>
-        <button onclick="login()">Entrar</button>
-
-        <div id="mfa" style="display:none;margin-top:20px;">
-          <h3>Digite o código do Microsoft Authenticator</h3>
-          <input id="token" placeholder="Código MFA"><br>
-          <button onclick="verifyMFA()">Verificar</button>
-        </div>
+        <button type="button" onclick="login()">Entrar</button>
 
         <p class="signup-text">
           Não tem uma conta? <a href="signup.html">Cadastre-se aqui</a>
@@ -35,6 +29,18 @@
     </div>
   </div>
 
-  <script src="login.js"></script>
+  <!-- POPUP DE MFA -->
+  <div id="mfa-popup" class="popup">
+    <div class="text">
+      <span class="icon">🔐</span>
+      <p class="title">Autenticação MFA</p>
+      <p class="message">Digite o código do Microsoft Authenticator</p>
+      <input id="token" placeholder="Código MFA" style="padding:10px;border-radius:8px;border:none;width:200px;text-align:center;font-size:16px;margin-top:10px;"><br>
+      <button onclick="verifyMFA()" style="margin-top:10px;padding:10px 20px;border-radius:8px;border:none;background-color:#002B59;color:white;cursor:pointer;">Verificar</button>
+      <button id="closeMfaBtn" style="margin-top:10px;padding:6px 12px;border-radius:8px;border:none;background-color:#999;color:white;cursor:pointer;">Fechar</button>
+    </div>
+  </div>
+
+  <script src="login.js" defer></script>
 </body>
 </html>
