@@ -24,6 +24,25 @@ app.use(cors());
 
 app.use(express.static(path.join(__dirname, "../frontend")));
 
+const allowedOrigins = [
+  "http://localhost:3000",
+  "http://localhost:5500",
+  "http://127.0.0.1:5500",          
+  "https://conectabus.netlify.app", 
+ ];
+ app.use(cors({
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error("Não permitido pelo CORS"));
+    }
+  },
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"],
+  credentials: true,
+ }));
+
 // Abrir login.html quando acessar "/"
 app.get("/", (req, res) => {
     res.sendFile(path.join(__dirname, "../frontend/login.html"));
